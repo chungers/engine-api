@@ -7,6 +7,7 @@ import (
 	"github.com/docker/engine-api/types"
 	"github.com/docker/engine-api/types/container"
 	"github.com/docker/engine-api/types/filters"
+	"github.com/docker/engine-api/types/infra"
 	"github.com/docker/engine-api/types/network"
 	"github.com/docker/engine-api/types/registry"
 	"github.com/docker/engine-api/types/swarm"
@@ -77,6 +78,11 @@ type ImageAPIClient interface {
 	ImageSearch(ctx context.Context, term string, options types.ImageSearchOptions) ([]registry.SearchResult, error)
 	ImageSave(ctx context.Context, images []string) (io.ReadCloser, error)
 	ImageTag(ctx context.Context, image, ref string) error
+}
+
+// InfraAPIClient defines API client methods for infrastructure
+type InfraAPIClient interface {
+	InfraUpdate(ctx context.Context, config infra.Config) error
 }
 
 // NetworkAPIClient defines API client methods for the networks
