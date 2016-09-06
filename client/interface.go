@@ -18,6 +18,7 @@ import (
 type CommonAPIClient interface {
 	ContainerAPIClient
 	ImageAPIClient
+	InfraAPIClient
 	NodeAPIClient
 	NetworkAPIClient
 	ServiceAPIClient
